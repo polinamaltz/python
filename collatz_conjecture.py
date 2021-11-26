@@ -2,15 +2,19 @@ from matplotlib.pyplot import plot
 from matplotlib import pyplot as plt
 import numpy as np
 
-numbers = range(1, 1000)
-seq = []
-for number in numbers:
+
+def collatz_sequence(number):
     l = []
     while number > 1:
         l.append(number)
         number = number // 2 if number % 2 == 0 else number * 3 + 1
     l.append(1)
-    seq.append(l)
+    return l
+
+numbers = range(1, 1000)
+seq = []
+for number in numbers:
+    seq.append(collatz_sequence(number))
 max_ = []
 for num in seq:
     max_.append(max(num))
